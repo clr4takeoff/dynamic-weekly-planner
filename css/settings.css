@@ -1,0 +1,120 @@
+/* 기본 스타일 */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 전체 레이아웃 */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* 프로필 사진과 입력 필드를 가로로 배치 */
+.profile-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#profile-pic {
+  width: 150px;
+  height: 150px;
+  background-size: cover; /* 이미지 크기가 영역을 채우도록 설정 */
+  background-position: center; /* 이미지가 중앙에 오도록 설정 */
+  background-repeat: no-repeat;
+  border-radius: 50%; /* 원형으로 만들기 */
+  background-color: #cccccc; /* 기본 회색 배경 */
+}
+
+/* 입력 필드 스타일 */
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-input {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 300px;
+  text-align: left;
+}
+
+/* 저장 버튼 */
+#save-profile {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #ddd;
+  transition: background-color 0.3s;
+  width: 100%;
+  max-width: 300px;
+}
+
+#save-profile:hover {
+  background-color: #ccc;
+}
+
+/* 설정 버튼 섹션 */
+.settings-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.settings-buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #ddd;
+  transition: background-color 0.3s;
+}
+
+.settings-buttons button:hover {
+  background-color: #ccc;
+}
+
+/* 사이드바 */
+.sidebar {
+  position: fixed;
+  right: 10px;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar .icon {
+  background-color: #bbb;
+  padding: 10px;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  font-size: 35px;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.3s;
+}
+
+.sidebar .icon:hover {
+  background-color: #888;
+}

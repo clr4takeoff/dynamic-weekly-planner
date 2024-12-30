@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stopwatch with Person Detection</title>
+    <link rel="stylesheet" href="../css/stopwatch.css" />
+  </head>
+
+  <body>
+      <!-- Sidebar with Floating Icons -->
+      <div class="sidebar">
+        <!-- main으로 이동 -->
+        <a href="main.html" class="icon">🏠</a>
+        <!-- stopwatch로 이동 -->
+        <a href="stopwatch.html" class="icon">⏰</a>
+        <!-- mypage로 이동 -->
+        <a href="mypage.html" class="icon">⭐️</a>
+        <!-- Settings로 이동 -->
+        <a href="settings.html" class="icon">⚙️</a>
+      </div>
+
+    <div class="container">
+      <div class="camera-container">
+        <video id="camera-feed" autoplay playsinline></video>
+        <button id="camera-button">카메라 켜기</button>
+      </div>
+
+      <div class="timer-container">
+        <h1 id="timer-display">00:00:00</h1>
+
+        <div class="timer-buttons">
+          <button id="start-button">시작</button>
+          <button id="stop-button" disabled>종료</button>
+          <button id="log-button" disabled>기록</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <!-- Coco-SSD -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+
+    <script type="module" src="../js/stopwatch.js"></script>
+  </body>
+</html>

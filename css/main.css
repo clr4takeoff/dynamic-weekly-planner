@@ -1,0 +1,248 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas:
+    "today-date task-overview task-overview"
+    "calendar-header calendar-header mini-calendar"
+    "calendar-body calendar-body memo-section";
+  gap: 10px;
+  padding: 20px;
+}
+
+.today-date {
+  grid-area: today-date;
+  background-color: #ccc;
+  padding: 20px;
+  text-align: center;
+}
+
+.today-date p {
+  margin: 0;
+  margin-top: 10px;
+}
+
+.date-display {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 10px; /* 위쪽 여백을 조금 추가 */
+  margin-top: 20px;
+}
+
+.task-overview {
+  grid-area: task-overview;
+  display: flex;
+  justify-content: space-around;
+  background-color: #ddd;
+  padding: 10px;
+  gap: 5px; /* 각 task 사이의 여백을 줄임 */
+}
+
+.task {
+  background-color: #bbb;
+  width: 100px; /* 정사각형 크기 */
+  height: 100px; /* 정사각형 크기 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 0.9em; /* 텍스트 크기 조정 */
+}
+
+.calendar-header {
+  grid-area: calendar-header;
+  display: grid;
+  grid-template-columns: 1fr repeat(7, 1fr); /* Added time-labels column */
+  background-color: #eee;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.calendar-body {
+  grid-area: calendar-body;
+  display: grid;
+  grid-template-columns: 1fr repeat(7, 1fr); /* Added column for time labels */
+  background-color: #fff;
+  padding: 10px;
+  gap: 5px;
+}
+
+.time-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding-right: 10px;
+}
+
+.time-label {
+  height: 60px; /* 세로 네 칸을 차지하도록 높이 설정 */
+  line-height: 60px; /* 가운데 정렬 */
+  text-align: right;
+  padding-right: 10px;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+.day-column {
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.time-slot {
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #cccccc; /* time-slot의 경계선 유지 */
+  cursor: pointer;
+  user-select: none;
+}
+
+.time-part {
+  height: 15px;
+  border-bottom: 1px solid #eeeeee; /* time-part의 경계선 */
+  background-color: #fff;
+}
+
+.time-part.selected {
+  background-color: #7d7d7d; /* 드래그된 time-part 배경색 */
+  /* border-bottom: none; 이 줄은 제거하여 테두리 유지 */
+}
+
+.mini-calendar {
+  grid-area: mini-calendar;
+  background-color: #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.memo-section {
+  grid-area: memo-section;
+  background-color: #ddd;
+  padding: 20px;
+}
+
+.memo-section textarea {
+  width: 100%;
+  height: 100px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.sidebar {
+  position: fixed;
+  right: 10px;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.icon {
+  background-color: #bbb;
+  padding: 10px;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  font-size: 35px;
+}
+
+.sidebar .icon {
+  text-decoration: none;
+  color: inherit;
+}
+
+.icon:hover {
+  background-color: #888;
+}
+
+.event-slot {
+  background-color: #7d7d7d;
+  color: #333;
+  font-weight: bold;
+  border: none;
+}
+
+/* modal */
+.modal {
+  display: none; /* 기본적으로 숨기기 */
+  position: fixed;
+  top: 50%; /* 화면 중앙에 위치 */
+  left: 50%; /* 화면 중앙에 위치 */
+  transform: translate(-50%, -50%); /* 중앙 정렬 */
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* 다른 요소보다 위에 표시 */
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 80%;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+  z-index: 1001; /* 모달 창 자체를 더 위에 표시 */
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+}
+
+#selectedDate {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+.modal-content form div {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.modal-content label {
+  flex-grow: 0; /* 칸이 너무 넓어지지 않도록 */
+  white-space: nowrap; /* 텍스트가 줄바꿈되지 않도록 */
+  font-size: 0.9em; /* 텍스트 크기를 약간 줄임 */
+  display: flex;
+  align-items: center; /* 라디오 버튼과 텍스트 수직 중앙 정렬 */
+  gap: 5px; /* 라디오 버튼과 텍스트 간격 */
+}
+
+.modal-content input[type="text"],
+.modal-content textarea {
+  flex-grow: 1;
+}
+
+.modal-content button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.close-button {
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

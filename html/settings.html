@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings</title>
+    <link rel="stylesheet" href="../css/settings.css" />
+  </head>
+  <body>
+      <!-- Sidebar with Floating Icons -->
+      <div class="sidebar">
+        <!-- main으로 이동 -->
+        <a href="main.html" class="icon">🏠</a>
+        <!-- stopwatch로 이동 -->
+        <a href="stopwatch.html" class="icon">⏰</a>
+        <!-- mypage로 이동 -->
+        <a href="mypage.html" class="icon">⭐️</a>
+        <!-- Settings로 이동 -->
+        <a href="settings.html" class="icon">⚙️</a>
+      </div>
+
+    <div class="container">
+      <!-- 숨겨진 파일 업로드 input (파일 선택 버튼을 사용자에게 제공) -->
+      <input type="file" id="profile-pic-upload" style="display: none" />
+      <div class="profile-pic" id="profile-pic">
+        <!-- 프로필 사진 미리보기 표시 -->
+      </div>
+
+      <input
+        type="text"
+        id="username"
+        placeholder="USER"
+        maxlength="30"
+        class="profile-input"
+      />
+      <input
+        type="text"
+        id="status-message"
+        placeholder="오늘도 좋은 하루 보내세요."
+        maxlength="30"
+        class="profile-input"
+      />
+
+      <button id="save-profile">저장</button>
+
+      <!-- 설정 버튼 섹션 -->
+      <div class="settings-buttons">
+        <button id="reset-data">초기화</button>
+      </div>
+    </div>
+
+    <script src="../js/settings.js" type="module"></script>
+  </body>
+</html>

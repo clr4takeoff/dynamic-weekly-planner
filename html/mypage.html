@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Page</title>
+    <link rel="stylesheet" href="../css/mypage.css">
+</head>
+<body>
+      <!-- Sidebar with Floating Icons -->
+      <div class="sidebar">
+        <!-- main으로 이동 -->
+        <a href="main.html" class="icon">🏠</a>
+        <!-- stopwatch로 이동 -->
+        <a href="stopwatch.html" class="icon">⏰</a>
+        <!-- mypage로 이동 -->
+        <a href="mypage.html" class="icon">⭐️</a>
+        <!-- Settings로 이동 -->
+        <a href="settings.html" class="icon">⚙️</a>
+      </div>
+
+    <div class="container">
+        <!-- 사용자 프로필 섹션 -->
+        <div class="profile-section">
+            <div class="profile-pic" id="profile-pic"></div>
+            <div class="profile-info">
+                <h2 id="username">USER님,</h2>
+                <p id="status-message">오늘도 좋은 하루 보내세요.</p>
+            </div>
+        </div>
+
+        <!-- 일일 분석 섹션 (왼쪽) -->
+        <div class="daily-analysis">
+            <p>집중 시간 ⏳</p>
+            <p1>오늘은 <span id="today-hours">00</span>시간 <span id="today-minutes">00</span>분 <span id="today-seconds">00</span>초 집중했어요.</p>
+            <div class="daily-bar-container">
+                <div class="daily-bar today-bar"></div> <!-- 오늘 집중 시간 바 그래프 -->
+                <span class="bar-label">오늘</span>
+            </div>
+
+            <p1>어제는 <span id="yesterday-hours">00</span>시간 <span id="yesterday-minutes">00</span>분 <span id="yesterday-seconds">00</span>초 집중했어요.</p>
+            <div class="daily-bar-container">
+                <div class="daily-bar yesterday-bar"></div> <!-- 어제 집중 시간 바 그래프 -->
+                <span class="bar-label">어제</span>
+            </div>
+        </div>
+
+        <!-- 월간 달력 섹션 (오른쪽) -->
+        <div class="monthly-calendar">
+            <p>월간 일정 🗓️</p>
+            <div id="calendar"></div> 
+        </div>
+
+        <!-- AI의 한마디 섹션 -->
+        <div class="ai-message">
+            <p>AI의 한마디: <span id="ai-message">-</span></p>
+        </div>
+
+        <!-- AI의 한마디를 불러오는 버튼 -->
+        <button id="get-ai-message-btn">AI에게 조언 부탁하기</button>
+        
+    </div>
+
+    <script type="module" src="../js/mypage.js"></script>
+</body>
+</html>
